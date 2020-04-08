@@ -13,7 +13,6 @@ def error():
     </body></html>
     """
     resp = make_response(render_template_string(dedent(template).format(request.args.get('url'))))
-    resp.headers['Content-Security-Policy'] = "script-src https:"
     return resp
 
 app.run()
