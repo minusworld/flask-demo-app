@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, request, make_response
+from flask import Flask, request, make_response
 from textwrap import dedent
 
 app = Flask(__name__)
@@ -12,8 +12,8 @@ def error():
     </h1>
     </body></html>
     """
-    resp = make_response(render_template_string(dedent(template).format(request.args.get('url'))))
-    resp.headers['Content-Security-Policy'] = "script-src https:"
+    resp = make_response(render_template("error.html", request.args.get('url')))
+    #resp.headers['Content-Security-Policy'] = "script-src https:"
     return resp
 
 app.run()
