@@ -37,7 +37,6 @@ def error():
     </body></html>
     """
     resp = make_response(render_template_string(template.format(request.args.get('url'))))
-    #resp.headers['Content-Security-Policy'] = "script-src https:"
     return resp
 
 if __name__ == '__main__':
